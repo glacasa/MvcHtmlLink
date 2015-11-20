@@ -13,39 +13,31 @@ namespace MvcHtmlLink
     {
         private readonly ViewContext _viewContext;
 
-        public HtmlLink(AjaxHelper ajaxHelper, string actionName, string controllerName, RouteValueDictionary routeValues, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
+        public HtmlLink(ViewContext viewContext, string targetUrl, IDictionary<string, object> htmlAttributes, AjaxOptions ajaxOptions = null)
         {
-            _viewContext = ajaxHelper.ViewContext;
-
-            string targetUrl = UrlHelper.GenerateUrl(null, actionName, controllerName, routeValues, ajaxHelper.RouteCollection, ajaxHelper.ViewContext.RequestContext, true);
-
-            _viewContext.Writer.Write(GenerateLink(ajaxHelper, targetUrl, ajaxOptions, htmlAttributes));
+            _viewContext = viewContext;
+            _viewContext.Writer.Write(GenerateLink(targetUrl, htmlAttributes, ajaxOptions));
         }
-
-        private static string GenerateLink(AjaxHelper ajaxHelper, string targetUrl, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
+        
+        private static string GenerateLink(string targetUrl, IDictionary<string, object> htmlAttributes, AjaxOptions ajaxOptions)
         {
             TagBuilder tag = new TagBuilder("a");
 
             tag.MergeAttributes(htmlAttributes);
             tag.MergeAttribute("href", targetUrl);
 
-            if (ajaxHelper.ViewContext.UnobtrusiveJavaScriptEnabled)
+            if (ajaxOptions != null)
             {
                 tag.MergeAttributes(ajaxOptions.ToUnobtrusiveHtmlAttributes());
-            }
-            else
-            {
-                throw new NotImplementedException();
-                //tag.MergeAttribute("onclick", GenerateAjaxScript(ajaxOptions, LinkOnClickFormat));
             }
 
             return tag.ToString(TagRenderMode.StartTag);
         }
 
+
         public void Dispose()
         {
             _viewContext.Writer.Write("</a>");
         }
-
     }
 }

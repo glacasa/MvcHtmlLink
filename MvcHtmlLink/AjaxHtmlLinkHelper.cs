@@ -50,33 +50,18 @@ namespace MvcHtmlLink
 
         public static HtmlLink ActionHtmlLink(this AjaxHelper ajaxHelper, string actionName, string controllerName, object routeValues, AjaxOptions ajaxOptions, object htmlAttributes)
         {
-            RouteValueDictionary newValues = ObjectToDictionary(routeValues);
+            RouteValueDictionary newValues = TypeHelper.ObjectToDictionary(routeValues);
             RouteValueDictionary newAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes);
             return ActionHtmlLink(ajaxHelper, actionName, controllerName, newValues, ajaxOptions, newAttributes);
         }
 
         public static HtmlLink ActionHtmlLink(this AjaxHelper ajaxHelper, string actionName, string controllerName, RouteValueDictionary routeValues, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
         {
-            return new HtmlLink(ajaxHelper, actionName, controllerName, routeValues, ajaxOptions, htmlAttributes);
+            string targetUrl = UrlHelper.GenerateUrl(null, actionName, controllerName, routeValues, ajaxHelper.RouteCollection, ajaxHelper.ViewContext.RequestContext, true);
+            return new HtmlLink(ajaxHelper.ViewContext, targetUrl, htmlAttributes, ajaxOptions);            
         }
 
 
 
-
-
-        private static RouteValueDictionary ObjectToDictionary(object value)
-        {
-            RouteValueDictionary dictionary = new RouteValueDictionary();
-
-            if (value != null)
-            {
-                foreach (PropertyHelper helper in PropertyHelper.GetProperties(value))
-                {
-                    dictionary.Add(helper.Name, helper.GetValue(value));
-                }
-            }
-
-            return dictionary;
-        }
     }
 }
