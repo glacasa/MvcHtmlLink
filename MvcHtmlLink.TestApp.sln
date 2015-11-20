@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcHtmlLink.TestApp", "MvcHtmlLink.TestApp\MvcHtmlLink.TestApp.csproj", "{05966CB4-C284-47C3-88F3-6360B58CEC0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcHtmlLink", "MvcHtmlLink\MvcHtmlLink.csproj", "{DBA3764D-1786-455E-9690-20E2883603C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{2072E128-E236-42D5-B028-15F7A00C2B41}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05966CB4-C284-47C3-88F3-6360B58CEC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05966CB4-C284-47C3-88F3-6360B58CEC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05966CB4-C284-47C3-88F3-6360B58CEC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05966CB4-C284-47C3-88F3-6360B58CEC0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA3764D-1786-455E-9690-20E2883603C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA3764D-1786-455E-9690-20E2883603C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA3764D-1786-455E-9690-20E2883603C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA3764D-1786-455E-9690-20E2883603C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
