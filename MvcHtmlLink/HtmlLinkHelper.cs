@@ -62,5 +62,63 @@ namespace MvcHtmlLink
             string targetUrl = UrlHelper.GenerateUrl(null, actionName, controllerName, protocol, hostName, fragment, routeValues, htmlHelper.RouteCollection, htmlHelper.ViewContext.RequestContext, true);
             return new HtmlLink(htmlHelper.ViewContext, targetUrl, htmlAttributes);
         }
+
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper, object routeValues)
+        {
+            return RouteHtmlLink(htmlHelper, TypeHelper.ObjectToDictionary(routeValues));
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper, RouteValueDictionary routeValues)
+        {
+            return RouteHtmlLink(htmlHelper, routeValues, new RouteValueDictionary());
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName)
+        {
+            return RouteHtmlLink(htmlHelper,  routeName, (object)null /* routeValues */);
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName, object routeValues)
+        {
+            return RouteHtmlLink(htmlHelper,  routeName, TypeHelper.ObjectToDictionary(routeValues));
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName, RouteValueDictionary routeValues)
+        {
+            return RouteHtmlLink(htmlHelper,  routeName, routeValues, new RouteValueDictionary());
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  object routeValues, object htmlAttributes)
+        {
+            return RouteHtmlLink(htmlHelper,  TypeHelper.ObjectToDictionary(routeValues), HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  RouteValueDictionary routeValues, IDictionary<string, object> htmlAttributes)
+        {
+            return RouteHtmlLink(htmlHelper,  null /* routeName */, routeValues, htmlAttributes);
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName, object routeValues, object htmlAttributes)
+        {
+            return RouteHtmlLink(htmlHelper,  routeName, TypeHelper.ObjectToDictionary(routeValues), HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName, RouteValueDictionary routeValues, IDictionary<string, object> htmlAttributes)
+        {
+            string targetUrl = UrlHelper.GenerateUrl(routeName, null, null, routeValues, htmlHelper.RouteCollection, htmlHelper.ViewContext.RequestContext, true);
+            return new HtmlLink(htmlHelper.ViewContext, targetUrl, htmlAttributes);
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName, string protocol, string hostName, string fragment, object routeValues, object htmlAttributes)
+        {
+            return RouteHtmlLink(htmlHelper,  routeName, protocol, hostName, fragment, TypeHelper.ObjectToDictionary(routeValues), HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static HtmlLink RouteHtmlLink(this HtmlHelper htmlHelper,  string routeName, string protocol, string hostName, string fragment, RouteValueDictionary routeValues, IDictionary<string, object> htmlAttributes)
+        {
+            string targetUrl = UrlHelper.GenerateUrl(routeName, null, null, protocol, hostName, fragment, routeValues, htmlHelper.RouteCollection, htmlHelper.ViewContext.RequestContext, true);
+            return new HtmlLink(htmlHelper.ViewContext, targetUrl, htmlAttributes);
+        }
     }
 }
