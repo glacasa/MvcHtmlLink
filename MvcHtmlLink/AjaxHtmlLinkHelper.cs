@@ -1,18 +1,12 @@
-﻿using System;
+﻿using MvcHtmlLink;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
 using System.Web.Routing;
 using System.Web.WebPages;
 
-namespace MvcHtmlLink
+namespace System.Web.Mvc.Ajax
 {
     public static class AjaxHtmlLinkHelper
     {
-
         public static HtmlLink ActionHtmlLink(this AjaxHelper ajaxHelper, string actionName, AjaxOptions ajaxOptions)
         {
             return ActionHtmlLink(ajaxHelper, actionName, (string)null /* controllerName */, ajaxOptions);
@@ -58,7 +52,7 @@ namespace MvcHtmlLink
         public static HtmlLink ActionHtmlLink(this AjaxHelper ajaxHelper, string actionName, string controllerName, RouteValueDictionary routeValues, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
         {
             string targetUrl = UrlHelper.GenerateUrl(null, actionName, controllerName, routeValues, ajaxHelper.RouteCollection, ajaxHelper.ViewContext.RequestContext, true);
-            return new HtmlLink(ajaxHelper.ViewContext, targetUrl, htmlAttributes, ajaxOptions);            
+            return new HtmlLink(ajaxHelper.ViewContext, targetUrl, htmlAttributes, ajaxOptions);
         }
 
 
