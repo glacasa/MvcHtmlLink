@@ -10,16 +10,28 @@
         @Html.ActionLink("Mvc ActionLink", "Index")<br />
         @Html.ActionLink("Mvc ActionLink with params", "Index", new { Id = 1 }, new { @class = "some-css-class" })<br />
         <br />
-        @using (Html.ActionHtmlLink("Index"))
+        @using (Html.BeginActionLink("Index"))
         {
             <span>Html link</span>
         }
         <br />
-        @using (Html.ActionHtmlLink("Index", new { Id = 1 }, new { @class = "some-css-class" }))
+        @using (Html.BeginActionLink("Index", new { Id = 1 }, new { @class = "some-css-class" }))
         {
             <span>Html link with params</span>
         }
-
+        <br /><br />
+        @Html.RouteLink("Mvc RouteLink", "Default")<br />
+        @Html.RouteLink("Mvc RouteLink with params", "Default", new { Id = 1 }, new { @class = "some-css-class" })<br />
+        <br />
+        @using (Html.BeginRouteLink("Default"))
+        {
+            <span>Html route link</span>
+        }
+        <br />
+        @using (Html.BeginRouteLink("Default", new { Id = 1 }, new { @class = "some-css-class" }))
+        {
+            <span>Html route link with params</span>
+        }
     </div>
 </body>
 </html>
