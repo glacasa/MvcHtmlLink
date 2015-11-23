@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MvcHtmlLink</id>
+    <version>1.0.0</version>
+    <title>MvcHtmlLink</title>
+    <authors>Guillaume Lacasa</authors>
+    <licenseUrl>https://raw.githubusercontent.com/glacasa/MvcHtmlLink/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/glacasa/MvcHtmlLink</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ASP.NET MVC helpers to create links containing Html code</description>
+  </metadata>
+  <files>
+    <file src="MvcHtmlLink\bin\Release\MvcHtmlLink.dll" target="lib\net45\TwoStepsAuthenticator.dll" />
+  </files>
+</package>

@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{2072E128-E236-42D5-B028-15F7A00C2B41}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
+		MvcHtmlLink.nuspec = MvcHtmlLink.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
