@@ -56,6 +56,68 @@ namespace System.Web.Mvc.Ajax
         }
 
 
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper, object routeValues, AjaxOptions ajaxOptions)
+        {
+            return BeginRouteLink(ajaxHelper, null /* routeName */, new RouteValueDictionary(routeValues), ajaxOptions, new Dictionary<string, object>());
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper, object routeValues, AjaxOptions ajaxOptions, object htmlAttributes)
+        {
+            return BeginRouteLink(ajaxHelper, null /* routeName */, new RouteValueDictionary(routeValues), ajaxOptions,                             HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  RouteValueDictionary routeValues, AjaxOptions ajaxOptions)
+        {
+            return BeginRouteLink(ajaxHelper,  null /* routeName */, routeValues, ajaxOptions,                             new Dictionary<string, object>());
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper, RouteValueDictionary routeValues, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
+        {
+            return BeginRouteLink(ajaxHelper,  null /* routeName */, routeValues, ajaxOptions, htmlAttributes);
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, AjaxOptions ajaxOptions)
+        {
+            return BeginRouteLink(ajaxHelper,  routeName, new RouteValueDictionary(), ajaxOptions,                             new Dictionary<string, object>());
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, AjaxOptions ajaxOptions, object htmlAttributes)
+        {
+            return BeginRouteLink(ajaxHelper,  routeName, new RouteValueDictionary(), ajaxOptions, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
+        {
+            return BeginRouteLink(ajaxHelper,  routeName, new RouteValueDictionary(), ajaxOptions, htmlAttributes);
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, object routeValues, AjaxOptions ajaxOptions)
+        {
+            return BeginRouteLink(ajaxHelper,  routeName, new RouteValueDictionary(routeValues), ajaxOptions,                             new Dictionary<string, object>());
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, object routeValues, AjaxOptions ajaxOptions, object htmlAttributes)
+        {
+            return BeginRouteLink(ajaxHelper,  routeName, new RouteValueDictionary(routeValues), ajaxOptions,
+                             HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, RouteValueDictionary routeValues, AjaxOptions ajaxOptions)
+        {
+            return BeginRouteLink(ajaxHelper, routeName, routeValues, ajaxOptions, new Dictionary<string, object>());
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, RouteValueDictionary routeValues, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
+        {
+            string targetUrl = UrlHelper.GenerateUrl(routeName, null /* actionName */, null /* controllerName */, routeValues ?? new RouteValueDictionary(), ajaxHelper.RouteCollection, ajaxHelper.ViewContext.RequestContext, false /* includeImplicitMvcValues */);
+            return new HtmlLink(ajaxHelper.ViewContext, targetUrl, htmlAttributes, ajaxOptions);
+        }
+
+        public static HtmlLink BeginRouteLink(this AjaxHelper ajaxHelper,  string routeName, string protocol, string hostName, string fragment, RouteValueDictionary routeValues, AjaxOptions ajaxOptions, IDictionary<string, object> htmlAttributes)
+        {
+            string targetUrl = UrlHelper.GenerateUrl(routeName, null /* actionName */, null /* controllerName */, protocol, hostName, fragment, routeValues ?? new RouteValueDictionary(), ajaxHelper.RouteCollection, ajaxHelper.ViewContext.RequestContext, false /* includeImplicitMvcValues */);
+            return new HtmlLink(ajaxHelper.ViewContext, targetUrl, htmlAttributes, ajaxOptions);
+        }
 
     }
 }
