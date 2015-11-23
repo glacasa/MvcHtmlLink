@@ -11,6 +11,6 @@
     <description>ASP.NET MVC helpers to create links containing Html code</description>
   </metadata>
   <files>
-    <file src="MvcHtmlLink\bin\Release\MvcHtmlLink.dll" target="lib\net45\TwoStepsAuthenticator.dll" />
+    <file src="MvcHtmlLink\bin\Release\MvcHtmlLink.dll" target="lib\net45\MvcHtmlLink.dll" />
   </files>
 </package>
