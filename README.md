@@ -30,6 +30,5 @@ You have 4 new helpers, to create ActionLink or RouteLink, both in Html and Ajax
 	Ajax.BeginActionLink
 	Ajax.BeginRouteLink
 
-Please note the current version only support Ajax with Unobtrusive Javascript
 
 	
