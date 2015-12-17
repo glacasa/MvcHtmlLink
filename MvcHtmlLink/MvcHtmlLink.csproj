@@ -73,6 +73,7 @@
     <Compile Include="HtmlLink.cs" />
     <Compile Include="HtmlLinkHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System.Web.WebPages\AjaxOptionsHelper.cs" />
     <Compile Include="System.Web.WebPages\PropertyHelper.cs" />
     <Compile Include="System.Web.WebPages\TypeHelper.cs" />
   </ItemGroup>

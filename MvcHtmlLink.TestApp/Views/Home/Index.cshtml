@@ -33,5 +33,14 @@
             <span>Html route link with params</span>
         }
     </div>
+    <hr />
+    <div>
+        @Ajax.ActionLink("Ajax ActionLink", "Index", new AjaxOptions() { })<br />
+        <br />
+        @using (Ajax.BeginActionLink("Index", new AjaxOptions() { }))
+        {
+            <span>Html link</span>
+        }
+    </div>
 </body>
 </html>
